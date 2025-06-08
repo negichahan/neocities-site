@@ -29,4 +29,4 @@ jobs:
           NEOCITIES_API_KEY: ${{ secrets.NEOCITIES_API_KEY }}
         run: |
           # --dir オプションで指定したディレクトリを再帰的にアップ
-          neocities push --dir=./ --key $NEOCITIES_API_KEY
+          neocities push .
