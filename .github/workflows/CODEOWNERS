@@ -1,0 +1,17 @@
+# 全ファイル共通のオーナー
+*               @negichahan
+
+# CSS／JS はフロントエンドチームにレビューを依頼
+*.css           @negichahan 
+*.js            @negichahan
+
+# ドキュメント（README や docs フォルダ配下）はドキュメントチーム
+README.md       @your-org/docs-team
+/docs/**        @your-org/docs-team
+
+# 特定のディレクトリ丸ごと指定
+/img/**         @negichahan
+/fonts/**       @negichahan
+
+# ワークフローファイルは DevOps チームに
+.github/workflows/**  @your-org/devops-team
