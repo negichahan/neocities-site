@@ -1,0 +1,283 @@
+/* 90s Retro Neocities Site Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: #000;
+    color: #00ff00;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Animated flashing background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, #ff00ff 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, #00ffff 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, #ffff00 0%, transparent 50%);
+    opacity: 0.1;
+    animation: flash 3s infinite alternate;
+    z-index: -2;
+}
+
+/* Dot pattern texture */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle, #00ff00 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+@keyframes flash {
+    0% { opacity: 0.05; }
+    50% { opacity: 0.15; }
+    100% { opacity: 0.1; }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header Styles */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    border: 3px solid #00ffff;
+    border-radius: 10px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 
+        0 0 20px #00ffff,
+        inset 0 0 20px rgba(0, 255, 255, 0.1);
+    animation: neon-glow 2s infinite alternate;
+}
+
+@keyframes neon-glow {
+    0% { 
+        box-shadow: 
+            0 0 20px #00ffff,
+            inset 0 0 20px rgba(0, 255, 255, 0.1);
+    }
+    100% { 
+        box-shadow: 
+            0 0 30px #00ffff,
+            0 0 40px #ff00ff,
+            inset 0 0 30px rgba(0, 255, 255, 0.2);
+    }
+}
+
+.logo, .banner {
+    max-width: 100px;
+    height: auto;
+    margin: 10px;
+    border: 2px solid #ff00ff;
+    border-radius: 5px;
+}
+
+.site-title {
+    font-size: 24px;
+    color: #00ffff;
+    text-shadow: 
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 30px #00ffff;
+    margin: 20px 0;
+    animation: title-pulse 1.5s infinite;
+}
+
+@keyframes title-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Navigation Styles */
+.navigation {
+    margin-bottom: 30px;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.nav-link {
+    color: #ff00ff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid #ff00ff;
+    border-radius: 5px;
+    background: rgba(255, 0, 255, 0.1);
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px #ff00ff;
+    display: block;
+}
+
+.nav-link:hover {
+    color: #00ffff;
+    border-color: #00ffff;
+    background: rgba(0, 255, 255, 0.2);
+    text-shadow: 0 0 10px #00ffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+}
+
+/* Main Content Styles */
+.main-content {
+    margin-bottom: 30px;
+}
+
+.welcome-section {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    background: rgba(0, 255, 0, 0.05);
+}
+
+.welcome-section h2 {
+    font-size: 18px;
+    color: #ffff00;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #ffff00;
+}
+
+.welcome-section p {
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.blink-text {
+    font-size: 14px;
+    color: #ff00ff;
+    animation: blink 1s infinite;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Content Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.content-box {
+    padding: 20px;
+    border: 2px solid #00ffff;
+    border-radius: 8px;
+    background: rgba(0, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.content-box:hover {
+    border-color: #ff00ff;
+    background: rgba(255, 0, 255, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 0, 255, 0.2);
+}
+
+.content-box h3 {
+    font-size: 14px;
+    color: #ffff00;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px #ffff00;
+}
+
+.content-box p {
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+/* Footer Styles */
+.footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #00ff00;
+    margin-top: 40px;
+    background: rgba(0, 255, 0, 0.05);
+}
+
+.footer p {
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+
+.visitor-counter {
+    font-size: 12px;
+    color: #ff00ff;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .site-title {
+        font-size: 18px;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .welcome-section h2 {
+        font-size: 16px;
+    }
+}
+
+/* Additional 90s Effects */
+.sparkle {
+    position: relative;
+}
+
+.sparkle::before {
+    content: '✨';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1); }
+}
