@@ -16,7 +16,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.x'       # 好きなバージョンに置き換えて OK
+          ruby-version: '3.4.4'       # 好きなバージョンに置き換えて OK
 
       # 3. neocities gem をインストール
       - name: Install Neocities CLI (Ruby)
