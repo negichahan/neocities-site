@@ -9,21 +9,24 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # コードをチェックアウト
+      # 1. コードをチェックアウト
       - uses: actions/checkout@v3
 
-      # （任意）Node.js をセットアップ
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      # 2. Ruby 環境をセットアップ
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          node-version: '18'
+          ruby-version: '3.x'       # 好きなバージョンに置き換えて OK
 
-      # Neocities CLI をインストール（ローカル）
-      - name: Install Neocities CLI
-        run: npm install neocities
+      # 3. neocities gem をインストール
+      - name: Install Neocities CLI (Ruby)
+        run: |
+          gem install neocities
 
-      # 実際にデプロイ
+      # 4. 実際にサイトをアップロード
       - name: Deploy to Neocities
         env:
           NEOCITIES_API_KEY: ${{ secrets.NEOCITIES_API_KEY }}
-        run: npx neocities deploy ./ --key $NEOCITIES_API_KEY
+        run: |
+          # --dir オプションで指定したディレクトリを再帰的にアップ
+          neocities push --dir=./ --key $NEOCITIES_API_KEY
