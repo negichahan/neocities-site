@@ -10,7 +10,7 @@ jobs:
 
       - name: Install Neocities CLI
         # run: npm install -g neocities
-        run: pip3 install neocities-cli
+        run: pip3 install neocities
 
       - name: Deploy
         env:
