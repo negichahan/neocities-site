@@ -1,18 +1,29 @@
 name: Deploy to Neocities
+
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # コードをチェックアウト
       - uses: actions/checkout@v3
 
-      - name: Install Neocities CLI
-        # run: npm install -g neocities
-        run: pip3 install neocities
+      # （任意）Node.js をセットアップ
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-      - name: Deploy
+      # Neocities CLI をインストール（ローカル）
+      - name: Install Neocities CLI
+        run: npm install neocities
+
+      # 実際にデプロイ
+      - name: Deploy to Neocities
         env:
           NEOCITIES_API_KEY: ${{ secrets.NEOCITIES_API_KEY }}
-        run: neocities deploy ./ --key $NEOCITIES_API_KEY
+        run: npx neocities deploy ./ --key $NEOCITIES_API_KEY
